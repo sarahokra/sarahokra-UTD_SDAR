@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Female Breast Cancer in Taiwan 2010-2021 – UTD_SDAR</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./icon.png" rel="icon" type="image/png">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<link href="site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+
+<script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+
+<script src="site_libs/plotly-binding-4.10.4/plotly.js"></script>
+
+<script src="site_libs/typedarray-0.1/typedarray.min.js"></script>
+
+<script src="site_libs/jquery-3.5.1/jquery.min.js"></script>
+
+<link href="site_libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
+
+<script src="site_libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+
+<link href="site_libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
+
+<script src="site_libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
+
+
+
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">UTD_SDAR</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">about</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/sarahokra"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./TWBC.html">My Implementation</a></li><li class="breadcrumb-item"><a href="./TWBC.html">Female Breast Cancer in Taiwan</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">EPPS6356</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./assignment01.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Assignment 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./assignment02.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Assignment 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./assignment03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Assignment 3</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./assignment04.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Assignment 4</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./assignment05.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Assignment 5</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true">
+ <span class="menu-text">My Implementation</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./TWBC.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Female Breast Cancer in Taiwan</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <span class="sidebar-item-text sidebar-link text-start">
+ <span class="menu-text">Section</span></span>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./TWBC.html">My Implementation</a></li><li class="breadcrumb-item"><a href="./TWBC.html">Female Breast Cancer in Taiwan</a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title">Female Breast Cancer in Taiwan 2010-2021</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load required packages</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(ggplot2, plotly, scales)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 設定檔案路徑</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>file_path <span class="ot">&lt;-</span> <span class="st">"C:/Users/USER/Desktop/quarto/quarto_website/UTD_SDAR/TWBC_R.csv"</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 讀取 CSV 檔案</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>TWBC <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(file_path)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 檢視資料表格</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">View</span>(TWBC)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the base plot</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>bc <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(TWBC, <span class="fu">aes</span>(N_Incidence, N_Deaths, <span class="at">color =</span> Region)) <span class="sc">+</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> N_Incidence, <span class="at">frame =</span> Year, <span class="at">ids =</span> City))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_point(aes(size = N_Incidence, frame = Year, ids = City)):
+Ignoring unknown aesthetics: frame and ids</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the static plot</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>bc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="TWBC_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Enhance the plot</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>bc <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(TWBC, <span class="fu">aes</span>(N_Incidence, N_Deaths, <span class="at">color =</span> Region)) <span class="sc">+</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">size =</span> N_Incidence, <span class="at">frame =</span> Year, <span class="at">ids =</span> City, <span class="at">alpha =</span> <span class="fl">0.3</span>)) <span class="sc">+</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_log10</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">dollar_format</span>()) <span class="sc">+</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Female Breast Cancer in Taiwan: Nunber of Incidence vs Deaths"</span>,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Nunber of Incidence"</span>, </span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Nunber of Deaths"</span>,</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">"Region"</span>,</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">size =</span> <span class="st">"Number of Incidence"</span>) <span class="sc">+</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in geom_point(aes(size = N_Incidence, frame = Year, ids = City, :
+Ignoring unknown aesthetics: frame and ids</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the enhanced static plot</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>bc  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="TWBC_files/figure-html/unnamed-chunk-1-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the interactive plot</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>interactive_plot <span class="ot">&lt;-</span> <span class="fu">ggplotly</span>(bc)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the interactive plot</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>interactive_plot  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="plotly html-widget html-fill-item" id="htmlwidget-580f1dc5ef1f597b610a" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-580f1dc5ef1f597b610a">{"x":{"data":[{"x":[3.0429690733931802,2.3180633349627615,2.6444385894678386,2.2278867046136734,2.287801729930226],"y":[207,40,94,26,51],"text":["N_Incidence: 1104<br />N_Deaths: 207<br />Region: Central Taiwan<br />N_Incidence: 1104<br />Year: 2010<br />City: Taichung City<br />alpha: 0.3","N_Incidence:  208<br />N_Deaths:  40<br />Region: Central Taiwan<br />N_Incidence:  208<br />Year: 2010<br />City: Miaoli County<br />alpha: 0.3","N_Incidence:  441<br />N_Deaths:  94<br />Region: Central Taiwan<br />N_Incidence:  441<br />Year: 2010<br />City: Changhua County<br />alpha: 0.3","N_Incidence:  169<br />N_Deaths:  26<br />Region: Central Taiwan<br />N_Incidence:  169<br />Year: 2010<br />City: Nantou County<br />alpha: 0.3","N_Incidence:  194<br />N_Deaths:  51<br />Region: Central Taiwan<br />N_Incidence:  194<br />Year: 2010<br />City: Yunlin County<br />alpha: 0.3"],"frame":"2010","ids":["Taichung City","Miaoli County","Changhua County","Nantou County","Yunlin County"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(248,118,109,1)","opacity":0.55000000000000004,"size":[15.284320678469713,8.7635068607877571,11.045895675260848,8.2695209131794485,8.5920161377524895],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(248,118,109,1)"}},"hoveron":"points","name":"Central Taiwan","legendgroup":"Central Taiwan","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","visible":true},{"x":[1.8750612633917001,2.1398790864012365],"y":[17,26],"text":["N_Incidence:   75<br />N_Deaths:  17<br />Region: Eastern Taiwan<br />N_Incidence:   75<br />Year: 2010<br />City: Taitung County<br />alpha: 0.3","N_Incidence:  138<br />N_Deaths:  26<br />Region: Eastern Taiwan<br />N_Incidence:  138<br />Year: 2010<br />City: Hualien County<br />alpha: 0.3"],"frame":"2010","ids":["Taitung County","Hualien County"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(163,165,0,1)","opacity":0.55000000000000004,"size":[6.7594634241427407,7.8341586002308468],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(163,165,0,1)"}},"hoveron":"points","name":"Eastern Taiwan","legendgroup":"Eastern Taiwan","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","visible":true},{"x":[3.1826999033360424,3.2839792842384798,2.8813846567705728,2.2576785748691846,2.2041199826559246,2.1553360374650619,2.2253092817258628],"y":[266,296,98,25,31,32,20],"text":["N_Incidence: 1523<br />N_Deaths: 266<br />Region: Northern Taiwan<br />N_Incidence: 1523<br />Year: 2010<br />City: Taipei City<br />alpha: 0.3","N_Incidence: 1923<br />N_Deaths: 296<br />Region: Northern Taiwan<br />N_Incidence: 1923<br />Year: 2010<br />City: New Taipei City<br />alpha: 0.3","N_Incidence:  761<br />N_Deaths:  98<br />Region: Northern Taiwan<br />N_Incidence:  761<br />Year: 2010<br />City: Taoyuan City<br />alpha: 0.3","N_Incidence:  181<br />N_Deaths:  25<br />Region: Northern Taiwan<br />N_Incidence:  181<br />Year: 2010<br />City: Yilan County<br />alpha: 0.3","N_Incidence:  160<br />N_Deaths:  31<br />Region: Northern Taiwan<br />N_Incidence:  160<br />Year: 2010<br />City: Hsinchu County<br />alpha: 0.3","N_Incidence:  143<br />N_Deaths:  32<br />Region: Northern Taiwan<br />N_Incidence:  143<br />Year: 2010<br />City: Keelung City<br />alpha: 0.3","N_Incidence:  168<br />N_Deaths:  20<br />Region: Northern Taiwan<br />N_Incidence:  168<br />Year: 2010<br />City: Hsinchu City<br />alpha: 0.3"],"frame":"2010","ids":["Taipei City","New Taipei City","Taoyuan City","Yilan County","Hsinchu County","Keelung City","Hsinchu City"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,191,125,1)","opacity":0.55000000000000004,"size":[17.293977798733039,18.96637915117001,13.329406217989209,8.4271122220910062,8.1475978606959156,7.9074851751248572,8.256137892787569],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,191,125,1)"}},"hoveron":"points","name":"Northern Taiwan","legendgroup":"Northern Taiwan","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","visible":true},{"x":[0.6020599913279624,1.0791812460476249],"y":[1,4],"text":["N_Incidence:    4<br />N_Deaths:   1<br />Region: Outlying Islands<br />N_Incidence:    4<br />Year: 2010<br />City: Lienchiang County<br />alpha: 0.3","N_Incidence:   12<br />N_Deaths:   4<br />Region: Outlying Islands<br />N_Incidence:   12<br />Year: 2010<br />City: Kinmen County<br />alpha: 0.3"],"frame":"2010","ids":["Lienchiang County","Kinmen County"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,176,246,1)","opacity":0.55000000000000004,"size":[4.3795281590560187,4.9284412372769761],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,176,246,1)"}},"hoveron":"points","name":"Outlying Islands","legendgroup":"Outlying Islands","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","visible":true},{"x":[2.8785217955012063,3.0913151596972228,2.271841606536499,2.4727564493172123,1.4313637641589874,2.0934216851622351],"y":[159,188,29,63,6,27],"text":["N_Incidence:  756<br />N_Deaths: 159<br />Region: Southern Taiwan<br />N_Incidence:  756<br />Year: 2010<br />City: Tainan City<br />alpha: 0.3","N_Incidence: 1234<br />N_Deaths: 188<br />Region: Southern Taiwan<br />N_Incidence: 1234<br />Year: 2010<br />City: Kaohsiung City<br />alpha: 0.3","N_Incidence:  187<br />N_Deaths:  29<br />Region: Southern Taiwan<br />N_Incidence:  187<br />Year: 2010<br />City: Chiayi County<br />alpha: 0.3","N_Incidence:  297<br />N_Deaths:  63<br />Region: Southern Taiwan<br />N_Incidence:  297<br />Year: 2010<br />City: Pingtung County<br />alpha: 0.3","N_Incidence:   27<br />N_Deaths:   6<br />Region: Southern Taiwan<br />N_Incidence:   27<br />Year: 2010<br />City: Penghu County<br />alpha: 0.3","N_Incidence:  124<br />N_Deaths:  27<br />Region: Southern Taiwan<br />N_Incidence:  124<br />Year: 2010<br />City: Chiayi City<br />alpha: 0.3"],"frame":"2010","ids":["Tainan City","Kaohsiung City","Chiayi County","Pingtung County","Penghu County","Chiayi City"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(231,107,243,1)","opacity":0.55000000000000004,"size":[13.297940304905259,15.943420682582298,8.5039370078740166,9.7393992892303629,5.5458814986755112,7.621405943395132],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(231,107,243,1)"}},"hoveron":"points","name":"Southern Taiwan","legendgroup":"Southern Taiwan","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","visible":true}],"layout":{"margin":{"t":43.762557077625573,"r":7.3059360730593621,"b":40.182648401826491,"l":43.105022831050235},"font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"title":{"text":"Female Breast Cancer in Taiwan: Nunber of Incidence vs Deaths","font":{"color":"rgba(0,0,0,1)","family":"","size":17.534246575342465},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.17368894173233626,3.6474677763790613],"tickmode":"array","ticktext":["$1","$10","$100","$1,000"],"tickvals":[0,0.99999999999999989,2,3],"categoryorder":"array","categoryarray":["$1","$10","$100","$1,000"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":"Nunber of Incidence","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-24.200000000000003,508.19999999999999],"tickmode":"array","ticktext":["0","100","200","300","400","500"],"tickvals":[0,100,200,300,400,500.00000000000006],"categoryorder":"array","categoryarray":["0","100","200","300","400","500"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"Nunber of Deaths","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.68949771689498},"title":{"text":"Region<br />alpha<br />Number of Incidence","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}}},"hovermode":"closest","barmode":"relative","sliders":[{"currentvalue":{"prefix":"~Year: ","xanchor":"right","font":{"size":16,"color":"rgba(204,204,204,1)"}},"steps":[{"method":"animate","args":[["2010"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"2010","value":"2010"},{"method":"animate","args":[["2011"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"2011","value":"2011"},{"method":"animate","args":[["2012"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"2012","value":"2012"},{"method":"animate","args":[["2013"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"2013","value":"2013"},{"method":"animate","args":[["2014"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"2014","value":"2014"},{"method":"animate","args":[["2015"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"2015","value":"2015"},{"method":"animate","args":[["2016"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"2016","value":"2016"},{"method":"animate","args":[["2017"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"2017","value":"2017"},{"method":"animate","args":[["2018"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"2018","value":"2018"},{"method":"animate","args":[["2019"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"2019","value":"2019"},{"method":"animate","args":[["2020"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"2020","value":"2020"},{"method":"animate","args":[["2021"],{"transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false},"mode":"immediate"}],"label":"2021","value":"2021"}],"visible":true,"pad":{"t":40}}],"updatemenus":[{"type":"buttons","direction":"right","showactive":false,"y":0,"x":0,"yanchor":"top","xanchor":"right","pad":{"t":60,"r":5},"buttons":[{"label":"Play","method":"animate","args":[null,{"fromcurrent":true,"mode":"immediate","transition":{"duration":500,"easing":"linear"},"frame":{"duration":500,"redraw":false}}]}]}]},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"7ba451e94437":{"x":{},"y":{},"colour":{},"size":{},"frame":{},"ids":{},"alpha":{},"type":"scatter"}},"cur_data":"7ba451e94437","visdat":{"7ba451e94437":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"frames":[{"name":"2010","data":[{"x":[3.0429690733931802,2.3180633349627615,2.6444385894678386,2.2278867046136734,2.287801729930226],"y":[207,40,94,26,51],"text":["N_Incidence: 1104<br />N_Deaths: 207<br />Region: Central Taiwan<br />N_Incidence: 1104<br />Year: 2010<br />City: Taichung City<br />alpha: 0.3","N_Incidence:  208<br />N_Deaths:  40<br />Region: Central Taiwan<br />N_Incidence:  208<br />Year: 2010<br />City: Miaoli County<br />alpha: 0.3","N_Incidence:  441<br />N_Deaths:  94<br />Region: Central Taiwan<br />N_Incidence:  441<br />Year: 2010<br />City: Changhua County<br />alpha: 0.3","N_Incidence:  169<br />N_Deaths:  26<br />Region: Central Taiwan<br />N_Incidence:  169<br />Year: 2010<br />City: Nantou County<br />alpha: 0.3","N_Incidence:  194<br />N_Deaths:  51<br />Region: Central Taiwan<br />N_Incidence:  194<br />Year: 2010<br />City: Yunlin County<br />alpha: 0.3"],"frame":"2010","ids":["Taichung City","Miaoli County","Changhua County","Nantou County","Yunlin County"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(248,118,109,1)","opacity":0.55000000000000004,"size":[15.284320678469713,8.7635068607877571,11.045895675260848,8.2695209131794485,8.5920161377524895],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(248,118,109,1)"}},"hoveron":"points","name":"Central Taiwan","legendgroup":"Central Taiwan","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","visible":true},{"x":[1.8750612633917001,2.1398790864012365],"y":[17,26],"text":["N_Incidence:   75<br />N_Deaths:  17<br />Region: Eastern Taiwan<br />N_Incidence:   75<br />Year: 2010<br />City: Taitung County<br />alpha: 0.3","N_Incidence:  138<br />N_Deaths:  26<br />Region: Eastern Taiwan<br />N_Incidence:  138<br />Year: 2010<br />City: Hualien County<br />alpha: 0.3"],"frame":"2010","ids":["Taitung County","Hualien County"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(163,165,0,1)","opacity":0.55000000000000004,"size":[6.7594634241427407,7.8341586002308468],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(163,165,0,1)"}},"hoveron":"points","name":"Eastern Taiwan","legendgroup":"Eastern Taiwan","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","visible":true},{"x":[3.1826999033360424,3.2839792842384798,2.8813846567705728,2.2576785748691846,2.2041199826559246,2.1553360374650619,2.2253092817258628],"y":[266,296,98,25,31,32,20],"text":["N_Incidence: 1523<br />N_Deaths: 266<br />Region: Northern Taiwan<br />N_Incidence: 1523<br />Year: 2010<br />City: Taipei City<br />alpha: 0.3","N_Incidence: 1923<br />N_Deaths: 296<br />Region: Northern Taiwan<br />N_Incidence: 1923<br />Year: 2010<br />City: New Taipei City<br />alpha: 0.3","N_Incidence:  761<br />N_Deaths:  98<br />Region: Northern Taiwan<br />N_Incidence:  761<br />Year: 2010<br />City: Taoyuan City<br />alpha: 0.3","N_Incidence:  181<br />N_Deaths:  25<br />Region: Northern Taiwan<br />N_Incidence:  181<br />Year: 2010<br />City: Yilan County<br />alpha: 0.3","N_Incidence:  160<br />N_Deaths:  31<br />Region: Northern Taiwan<br />N_Incidence:  160<br />Year: 2010<br />City: Hsinchu County<br />alpha: 0.3","N_Incidence:  143<br />N_Deaths:  32<br />Region: Northern Taiwan<br />N_Incidence:  143<br />Year: 2010<br />City: Keelung City<br />alpha: 0.3","N_Incidence:  168<br />N_Deaths:  20<br />Region: Northern Taiwan<br />N_Incidence:  168<br />Year: 2010<br />City: Hsinchu City<br />alpha: 0.3"],"frame":"2010","ids":["Taipei City","New Taipei City","Taoyuan City","Yilan County","Hsinchu County","Keelung City","Hsinchu City"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,191,125,1)","opacity":0.55000000000000004,"size":[17.293977798733039,18.96637915117001,13.329406217989209,8.4271122220910062,8.1475978606959156,7.9074851751248572,8.256137892787569],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,191,125,1)"}},"hoveron":"points","name":"Northern Taiwan","legendgroup":"Northern Taiwan","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","visible":true},{"x":[0.6020599913279624,1.0791812460476249],"y":[1,4],"text":["N_Incidence:    4<br />N_Deaths:   1<br />Region: Outlying Islands<br />N_Incidence:    4<br />Year: 2010<br />City: Lienchiang County<br />alpha: 0.3","N_Incidence:   12<br />N_Deaths:   4<br />Region: Outlying Islands<br />N_Incidence:   12<br />Year: 2010<br />City: Kinmen County<br />alpha: 0.3"],"frame":"2010","ids":["Lienchiang County","Kinmen County"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,176,246,1)","opacity":0.55000000000000004,"size":[4.3795281590560187,4.9284412372769761],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,176,246,1)"}},"hoveron":"points","name":"Outlying Islands","legendgroup":"Outlying Islands","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","visible":true},{"x":[2.8785217955012063,3.0913151596972228,2.271841606536499,2.4727564493172123,1.4313637641589874,2.0934216851622351],"y":[159,188,29,63,6,27],"text":["N_Incidence:  756<br />N_Deaths: 159<br />Region: Southern Taiwan<br />N_Incidence:  756<br />Year: 2010<br />City: Tainan City<br />alpha: 0.3","N_Incidence: 1234<br />N_Deaths: 188<br />Region: Southern Taiwan<br />N_Incidence: 1234<br />Year: 2010<br />City: Kaohsiung City<br />alpha: 0.3","N_Incidence:  187<br />N_Deaths:  29<br />Region: Southern Taiwan<br />N_Incidence:  187<br />Year: 2010<br />City: Chiayi County<br />alpha: 0.3","N_Incidence:  297<br />N_Deaths:  63<br />Region: Southern Taiwan<br />N_Incidence:  297<br />Year: 2010<br />City: Pingtung County<br />alpha: 0.3","N_Incidence:   27<br />N_Deaths:   6<br />Region: Southern Taiwan<br />N_Incidence:   27<br />Year: 2010<br />City: Penghu County<br />alpha: 0.3","N_Incidence:  124<br />N_Deaths:  27<br />Region: Southern Taiwan<br />N_Incidence:  124<br />Year: 2010<br />City: Chiayi City<br />alpha: 0.3"],"frame":"2010","ids":["Tainan City","Kaohsiung City","Chiayi County","Pingtung County","Penghu County","Chiayi City"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(231,107,243,1)","opacity":0.55000000000000004,"size":[13.297940304905259,15.943420682582298,8.5039370078740166,9.7393992892303629,5.5458814986755112,7.621405943395132],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(231,107,243,1)"}},"hoveron":"points","name":"Southern Taiwan","legendgroup":"Southern Taiwan","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","visible":true}],"traces":[0,1,2,3,4]},{"name":"2011","data":[{"x":[3.0791812460476247,2.3096301674258988,2.655138434811382,2.3384564936046046,2.3117538610557542],"y":[219,44,83,39,52],"text":["N_Incidence: 1200<br />N_Deaths: 219<br />Region: Central Taiwan<br />N_Incidence: 1200<br />Year: 2011<br />City: Taichung City<br />alpha: 0.3","N_Incidence:  204<br />N_Deaths:  44<br />Region: Central Taiwan<br />N_Incidence:  204<br />Year: 2011<br />City: Miaoli County<br />alpha: 0.3","N_Incidence:  452<br />N_Deaths:  83<br />Region: Central Taiwan<br />N_Incidence:  452<br />Year: 2011<br />City: Changhua County<br />alpha: 0.3","N_Incidence:  218<br />N_Deaths:  39<br />Region: Central Taiwan<br />N_Incidence:  218<br />Year: 2011<br />City: Nantou County<br />alpha: 0.3","N_Incidence:  205<br />N_Deaths:  52<br />Region: Central Taiwan<br />N_Incidence:  205<br />Year: 2011<br />City: Yunlin County<br />alpha: 0.3"],"frame":"2011","ids":["Taichung City","Miaoli County","Changhua County","Nantou County","Yunlin County"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(248,118,109,1)","opacity":0.55000000000000004,"size":[15.77453851197115,8.7151175663488196,11.136164578795626,8.8824729908723317,8.7272592575304824],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(248,118,109,1)"}},"hoveron":"points","name":"Central Taiwan","legendgroup":"Central Taiwan","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","visible":true},{"x":[1.8633228601204559,2.1139433523068369],"y":[22,36],"text":["N_Incidence:   73<br />N_Deaths:  22<br />Region: Eastern Taiwan<br />N_Incidence:   73<br />Year: 2011<br />City: Taitung County<br />alpha: 0.3","N_Incidence:  130<br />N_Deaths:  36<br />Region: Eastern Taiwan<br />N_Incidence:  130<br />Year: 2011<br />City: Hualien County<br />alpha: 0.3"],"frame":"2011","ids":["Taitung County","Hualien County"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(163,165,0,1)","opacity":0.55000000000000004,"size":[6.7189181897870318,7.7139946081053345],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(163,165,0,1)"}},"hoveron":"points","name":"Eastern Taiwan","legendgroup":"Eastern Taiwan","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","visible":true},{"x":[3.2022157758011316,3.2769211320657741,2.8796692056320534,2.271841606536499,2.1903316981702914,2.2764618041732443,2.2430380486862944],"y":[283,322,110,36,27,41,41],"text":["N_Incidence: 1593<br />N_Deaths: 283<br />Region: Northern Taiwan<br />N_Incidence: 1593<br />Year: 2011<br />City: Taipei City<br />alpha: 0.3","N_Incidence: 1892<br />N_Deaths: 322<br />Region: Northern Taiwan<br />N_Incidence: 1892<br />Year: 2011<br />City: New Taipei City<br />alpha: 0.3","N_Incidence:  758<br />N_Deaths: 110<br />Region: Northern Taiwan<br />N_Incidence:  758<br />Year: 2011<br />City: Taoyuan City<br />alpha: 0.3","N_Incidence:  187<br />N_Deaths:  36<br />Region: Northern Taiwan<br />N_Incidence:  187<br />Year: 2011<br />City: Yilan County<br />alpha: 0.3","N_Incidence:  155<br />N_Deaths:  27<br />Region: Northern Taiwan<br />N_Incidence:  155<br />Year: 2011<br />City: Hsinchu County<br />alpha: 0.3","N_Incidence:  189<br />N_Deaths:  41<br />Region: Northern Taiwan<br />N_Incidence:  189<br />Year: 2011<br />City: Keelung City<br />alpha: 0.3","N_Incidence:  175<br />N_Deaths:  41<br />Region: Northern Taiwan<br />N_Incidence:  175<br />Year: 2011<br />City: Hsinchu City<br />alpha: 0.3"],"frame":"2011","ids":["Taipei City","New Taipei City","Taoyuan City","Yilan County","Hsinchu County","Keelung City","Hsinchu City"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,191,125,1)","opacity":0.55000000000000004,"size":[17.601263415334682,18.843406669062198,13.310539136026547,8.5039370078740166,8.0783689099395541,8.5292691436142452,8.3489959920441805],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,191,125,1)"}},"hoveron":"points","name":"Northern Taiwan","legendgroup":"Northern Taiwan","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","visible":true},{"x":[0,1.0413926851582251],"y":[0,4],"text":["N_Incidence:    1<br />N_Deaths:   0<br />Region: Outlying Islands<br />N_Incidence:    1<br />Year: 2011<br />City: Lienchiang County<br />alpha: 0.3","N_Incidence:   11<br />N_Deaths:   4<br />Region: Outlying Islands<br />N_Incidence:   11<br />Year: 2011<br />City: Kinmen County<br />alpha: 0.3"],"frame":"2011","ids":["Lienchiang County","Kinmen County"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,176,246,1)","opacity":0.55000000000000004,"size":[3.7795275590551185,4.8749737695122084],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,176,246,1)"}},"hoveron":"points","name":"Outlying Islands","legendgroup":"Outlying Islands","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","visible":true},{"x":[2.9222062774390163,3.1075491297446862,2.2810333672477277,2.4828735836087539,1.5910646070264991,2.12057393120585],"y":[133,133,36,66,4,31],"text":["N_Incidence:  836<br />N_Deaths: 133<br />Region: Southern Taiwan<br />N_Incidence:  836<br />Year: 2011<br />City: Tainan City<br />alpha: 0.3","N_Incidence: 1281<br />N_Deaths: 133<br />Region: Southern Taiwan<br />N_Incidence: 1281<br />Year: 2011<br />City: Kaohsiung City<br />alpha: 0.3","N_Incidence:  191<br />N_Deaths:  36<br />Region: Southern Taiwan<br />N_Incidence:  191<br />Year: 2011<br />City: Chiayi County<br />alpha: 0.3","N_Incidence:  304<br />N_Deaths:  66<br />Region: Southern Taiwan<br />N_Incidence:  304<br />Year: 2011<br />City: Pingtung County<br />alpha: 0.3","N_Incidence:   39<br />N_Deaths:   4<br />Region: Southern Taiwan<br />N_Incidence:   39<br />Year: 2011<br />City: Penghu County<br />alpha: 0.3","N_Incidence:  132<br />N_Deaths:  31<br />Region: Southern Taiwan<br />N_Incidence:  132<br />Year: 2011<br />City: Chiayi City<br />alpha: 0.3"],"frame":"2011","ids":["Tainan City","Kaohsiung City","Chiayi County","Pingtung County","Penghu County","Chiayi City"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(231,107,243,1)","opacity":0.55000000000000004,"size":[13.789532574058896,16.173086660484152,8.5544668885221657,9.8094589616620702,5.914945344880234,7.7443770442263888],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(231,107,243,1)"}},"hoveron":"points","name":"Southern Taiwan","legendgroup":"Southern Taiwan","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","visible":true}],"traces":[0,1,2,3,4]},{"name":"2012","data":[{"x":[3.1034616220947049,2.357934847000454,2.6875289612146345,2.2380461031287955,2.369215857410143],"y":[249,35,93,44,58],"text":["N_Incidence: 1269<br />N_Deaths: 249<br />Region: Central Taiwan<br />N_Incidence: 1269<br />Year: 2012<br />City: Taichung City<br />alpha: 0.3","N_Incidence:  228<br />N_Deaths:  35<br />Region: Central Taiwan<br />N_Incidence:  228<br />Year: 2012<br />City: Miaoli County<br />alpha: 0.3","N_Incidence:  487<br />N_Deaths:  93<br />Region: Central Taiwan<br />N_Incidence:  487<br />Year: 2012<br />City: Changhua County<br />alpha: 0.3","N_Incidence:  173<br />N_Deaths:  44<br />Region: Central Taiwan<br />N_Incidence:  173<br />Year: 2012<br />City: Nantou County<br />alpha: 0.3","N_Incidence:  234<br />N_Deaths:  58<br />Region: Central Taiwan<br />N_Incidence:  234<br />Year: 2012<br />City: Yunlin County<br />alpha: 0.3"],"frame":"2012","ids":["Taichung City","Miaoli County","Changhua County","Nantou County","Yunlin County"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(248,118,109,1)","opacity":0.55000000000000004,"size":[16.114855050476198,8.9987281185382439,11.416288432634524,8.3226587788288295,9.0672544733455922],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(248,118,109,1)"}},"hoveron":"points","name":"Central Taiwan","legendgroup":"Central Taiwan","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","visible":true},{"x":[1.8976270912904414,2.1553360374650619],"y":[25,31],"text":["N_Incidence:   79<br />N_Deaths:  25<br />Region: Eastern Taiwan<br />N_Incidence:   79<br />Year: 2012<br />City: Taitung County<br />alpha: 0.3","N_Incidence:  143<br />N_Deaths:  31<br />Region: Eastern Taiwan<br />N_Incidence:  143<br />Year: 2012<br />City: Hualien County<br />alpha: 0.3"],"frame":"2012","ids":["Taitung County","Hualien County"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(163,165,0,1)","opacity":0.55000000000000004,"size":[6.8389423266270866,7.9074851751248572],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(163,165,0,1)"}},"hoveron":"points","name":"Eastern Taiwan","legendgroup":"Eastern Taiwan","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","visible":true},{"x":[3.2129861847366681,3.3023309286843991,2.9344984512435679,2.2695129442179165,2.2013971243204513,2.2810333672477277,2.2787536009528289],"y":[243,318,150,36,23,38,34],"text":["N_Incidence: 1633<br />N_Deaths: 243<br />Region: Northern Taiwan<br />N_Incidence: 1633<br />Year: 2012<br />City: Taipei City<br />alpha: 0.3","N_Incidence: 2006<br />N_Deaths: 318<br />Region: Northern Taiwan<br />N_Incidence: 2006<br />Year: 2012<br />City: New Taipei City<br />alpha: 0.3","N_Incidence:  860<br />N_Deaths: 150<br />Region: Northern Taiwan<br />N_Incidence:  860<br />Year: 2012<br />City: Taoyuan City<br />alpha: 0.3","N_Incidence:  186<br />N_Deaths:  36<br />Region: Northern Taiwan<br />N_Incidence:  186<br />Year: 2012<br />City: Yilan County<br />alpha: 0.3","N_Incidence:  159<br />N_Deaths:  23<br />Region: Northern Taiwan<br />N_Incidence:  159<br />Year: 2012<br />City: Hsinchu County<br />alpha: 0.3","N_Incidence:  191<br />N_Deaths:  38<br />Region: Northern Taiwan<br />N_Incidence:  191<br />Year: 2012<br />City: Keelung City<br />alpha: 0.3","N_Incidence:  190<br />N_Deaths:  34<br />Region: Northern Taiwan<br />N_Incidence:  190<br />Year: 2012<br />City: Hsinchu City<br />alpha: 0.3"],"frame":"2012","ids":["Taipei City","New Taipei City","Taoyuan City","Yilan County","Hsinchu County","Keelung City","Hsinchu City"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,191,125,1)","opacity":0.55000000000000004,"size":[17.773826100989382,19.290829283957589,13.932369829100111,8.4912198665056788,8.1338401247853103,8.5544668885221657,8.5418846813308846],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,191,125,1)"}},"hoveron":"points","name":"Northern Taiwan","legendgroup":"Northern Taiwan","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","visible":true},{"x":[0.3010299956639812,1.4913616938342726],"y":[0,3],"text":["N_Incidence:    2<br />N_Deaths:   0<br />Region: Outlying Islands<br />N_Incidence:    2<br />Year: 2012<br />City: Lienchiang County<br />alpha: 0.3","N_Incidence:   31<br />N_Deaths:   3<br />Region: Outlying Islands<br />N_Incidence:   31<br />Year: 2012<br />City: Kinmen County<br />alpha: 0.3"],"frame":"2012","ids":["Lienchiang County","Kinmen County"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,176,246,1)","opacity":0.55000000000000004,"size":[4.1259380669795744,5.6768960525255885],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,176,246,1)"}},"hoveron":"points","name":"Outlying Islands","legendgroup":"Outlying Islands","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","visible":true},{"x":[2.9206450014067875,3.1176026916900841,2.2600713879850747,2.5289167002776547,1.505149978319906,2.1238516409670858],"y":[155,240,43,63,4,27],"text":["N_Incidence:  833<br />N_Deaths: 155<br />Region: Southern Taiwan<br />N_Incidence:  833<br />Year: 2012<br />City: Tainan City<br />alpha: 0.3","N_Incidence: 1311<br />N_Deaths: 240<br />Region: Southern Taiwan<br />N_Incidence: 1311<br />Year: 2012<br />City: Kaohsiung City<br />alpha: 0.3","N_Incidence:  182<br />N_Deaths:  43<br />Region: Southern Taiwan<br />N_Incidence:  182<br />Year: 2012<br />City: Chiayi County<br />alpha: 0.3","N_Incidence:  338<br />N_Deaths:  63<br />Region: Southern Taiwan<br />N_Incidence:  338<br />Year: 2012<br />City: Pingtung County<br />alpha: 0.3","N_Incidence:   32<br />N_Deaths:   4<br />Region: Southern Taiwan<br />N_Incidence:   32<br />Year: 2012<br />City: Penghu County<br />alpha: 0.3","N_Incidence:  133<br />N_Deaths:  27<br />Region: Southern Taiwan<br />N_Incidence:  133<br />Year: 2012<br />City: Chiayi City<br />alpha: 0.3"],"frame":"2012","ids":["Tainan City","Kaohsiung City","Chiayi County","Pingtung County","Penghu County","Chiayi City"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(231,107,243,1)","opacity":0.55000000000000004,"size":[13.771534348504339,16.317482511942327,8.4400042986266044,10.138779156543754,5.7082596399867551,7.7594812874373176],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(231,107,243,1)"}},"hoveron":"points","name":"Southern Taiwan","legendgroup":"Southern Taiwan","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","visible":true}],"traces":[0,1,2,3,4]},{"name":"2013","data":[{"x":[3.1162755875805441,2.3364597338485296,2.7092699609758308,2.3031960574204891,2.3502480183341627],"y":[242,36,102,40,41],"text":["N_Incidence: 1307<br />N_Deaths: 242<br />Region: Central Taiwan<br />N_Incidence: 1307<br />Year: 2013<br />City: Taichung City<br />alpha: 0.3","N_Incidence:  217<br />N_Deaths:  36<br />Region: Central Taiwan<br />N_Incidence:  217<br />Year: 2013<br />City: Miaoli County<br />alpha: 0.3","N_Incidence:  512<br />N_Deaths: 102<br />Region: Central Taiwan<br />N_Incidence:  512<br />Year: 2013<br />City: Changhua County<br />alpha: 0.3","N_Incidence:  201<br />N_Deaths:  40<br />Region: Central Taiwan<br />N_Incidence:  201<br />Year: 2013<br />City: Nantou County<br />alpha: 0.3","N_Incidence:  224<br />N_Deaths:  41<br />Region: Central Taiwan<br />N_Incidence:  224<br />Year: 2013<br />City: Yunlin County<br />alpha: 0.3"],"frame":"2013","ids":["Taichung City","Miaoli County","Changhua County","Nantou County","Yunlin County"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(248,118,109,1)","opacity":0.55000000000000004,"size":[16.298325961482838,8.8707014747747213,11.610244169956401,8.6785119436083082,8.9525395946207649],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(248,118,109,1)"}},"hoveron":"points","name":"Central Taiwan","legendgroup":"Central Taiwan","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","visible":true},{"x":[1.9138138523837167,2.1846914308175989],"y":[19,23],"text":["N_Incidence:   82<br />N_Deaths:  19<br />Region: Eastern Taiwan<br />N_Incidence:   82<br />Year: 2013<br />City: Taitung County<br />alpha: 0.3","N_Incidence:  153<br />N_Deaths:  23<br />Region: Eastern Taiwan<br />N_Incidence:  153<br />Year: 2013<br />City: Hualien County<br />alpha: 0.3"],"frame":"2013","ids":["Taitung County","Hualien County"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(163,165,0,1)","opacity":0.55000000000000004,"size":[6.8972221303752281,8.0503631307053496],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(163,165,0,1)"}},"hoveron":"points","name":"Eastern Taiwan","legendgroup":"Eastern Taiwan","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","visible":true},{"x":[3.2335037603411343,3.3453737305590883,2.9527924430440922,2.3201462861110542,2.2900346113625178,2.3010299956639813,2.3180633349627615],"y":[264,320,144,31,40,33,37],"text":["N_Incidence: 1712<br />N_Deaths: 264<br />Region: Northern Taiwan<br />N_Incidence: 1712<br />Year: 2013<br />City: Taipei City<br />alpha: 0.3","N_Incidence: 2215<br />N_Deaths: 320<br />Region: Northern Taiwan<br />N_Incidence: 2215<br />Year: 2013<br />City: New Taipei City<br />alpha: 0.3","N_Incidence:  897<br />N_Deaths: 144<br />Region: Northern Taiwan<br />N_Incidence:  897<br />Year: 2013<br />City: Taoyuan City<br />alpha: 0.3","N_Incidence:  209<br />N_Deaths:  31<br />Region: Northern Taiwan<br />N_Incidence:  209<br />Year: 2013<br />City: Yilan County<br />alpha: 0.3","N_Incidence:  195<br />N_Deaths:  40<br />Region: Northern Taiwan<br />N_Incidence:  195<br />Year: 2013<br />City: Hsinchu County<br />alpha: 0.3","N_Incidence:  200<br />N_Deaths:  33<br />Region: Northern Taiwan<br />N_Incidence:  200<br />Year: 2013<br />City: Keelung City<br />alpha: 0.3","N_Incidence:  208<br />N_Deaths:  37<br />Region: Northern Taiwan<br />N_Incidence:  208<br />Year: 2013<br />City: Hsinchu City<br />alpha: 0.3"],"frame":"2013","ids":["Taipei City","New Taipei City","Taoyuan City","Yilan County","Hsinchu County","Keelung City","Hsinchu City"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,191,125,1)","opacity":0.55000000000000004,"size":[18.108533478546576,20.07923710742017,14.148723045708367,8.7755309537797306,8.6044676167235163,8.6662491349273836,8.7635068607877571],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,191,125,1)"}},"hoveron":"points","name":"Northern Taiwan","legendgroup":"Northern Taiwan","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","visible":true},{"x":[0.6020599913279624,1.2041199826559248],"y":[1,6],"text":["N_Incidence:    4<br />N_Deaths:   1<br />Region: Outlying Islands<br />N_Incidence:    4<br />Year: 2013<br />City: Lienchiang County<br />alpha: 0.3","N_Incidence:   16<br />N_Deaths:   6<br />Region: Outlying Islands<br />N_Incidence:   16<br />Year: 2013<br />City: Kinmen County<br />alpha: 0.3"],"frame":"2013","ids":["Lienchiang County","Kinmen County"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,176,246,1)","opacity":0.55000000000000004,"size":[4.3795281590560187,5.1211696871977912],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,176,246,1)"}},"hoveron":"points","name":"Outlying Islands","legendgroup":"Outlying Islands","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","visible":true},{"x":[2.9503648543761232,3.1601682929585122,2.2695129442179165,2.5954962218255742,1.5440680443502757,2.1238516409670858],"y":[188,255,33,71,7,29],"text":["N_Incidence:  892<br />N_Deaths: 188<br />Region: Southern Taiwan<br />N_Incidence:  892<br />Year: 2013<br />City: Tainan City<br />alpha: 0.3","N_Incidence: 1446<br />N_Deaths: 255<br />Region: Southern Taiwan<br />N_Incidence: 1446<br />Year: 2013<br />City: Kaohsiung City<br />alpha: 0.3","N_Incidence:  186<br />N_Deaths:  33<br />Region: Southern Taiwan<br />N_Incidence:  186<br />Year: 2013<br />City: Chiayi County<br />alpha: 0.3","N_Incidence:  394<br />N_Deaths:  71<br />Region: Southern Taiwan<br />N_Incidence:  394<br />Year: 2013<br />City: Pingtung County<br />alpha: 0.3","N_Incidence:   35<br />N_Deaths:   7<br />Region: Southern Taiwan<br />N_Incidence:   35<br />Year: 2013<br />City: Penghu County<br />alpha: 0.3","N_Incidence:  133<br />N_Deaths:  29<br />Region: Southern Taiwan<br />N_Incidence:  133<br />Year: 2013<br />City: Chiayi City<br />alpha: 0.3"],"frame":"2013","ids":["Tainan City","Kaohsiung City","Chiayi County","Pingtung County","Penghu County","Chiayi City"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(231,107,243,1)","opacity":0.55000000000000004,"size":[14.119750663051844,16.947684104323468,8.4912198665056788,10.646848311735063,5.7994305666315515,7.7594812874373176],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(231,107,243,1)"}},"hoveron":"points","name":"Southern Taiwan","legendgroup":"Southern Taiwan","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","visible":true}],"traces":[0,1,2,3,4]},{"name":"2014","data":[{"x":[3.1360860973840974,2.3483048630481607,2.7543483357110188,2.2900346113625178,2.3617278360175931],"y":[275,41,110,37,53],"text":["N_Incidence: 1368<br />N_Deaths: 275<br />Region: Central Taiwan<br />N_Incidence: 1368<br />Year: 2014<br />City: Taichung City<br />alpha: 0.3","N_Incidence:  223<br />N_Deaths:  41<br />Region: Central Taiwan<br />N_Incidence:  223<br />Year: 2014<br />City: Miaoli County<br />alpha: 0.3","N_Incidence:  568<br />N_Deaths: 110<br />Region: Central Taiwan<br />N_Incidence:  568<br />Year: 2014<br />City: Changhua County<br />alpha: 0.3","N_Incidence:  195<br />N_Deaths:  37<br />Region: Central Taiwan<br />N_Incidence:  195<br />Year: 2014<br />City: Nantou County<br />alpha: 0.3","N_Incidence:  230<br />N_Deaths:  53<br />Region: Central Taiwan<br />N_Incidence:  230<br />Year: 2014<br />City: Yunlin County<br />alpha: 0.3"],"frame":"2014","ids":["Taichung City","Miaoli County","Changhua County","Nantou County","Yunlin County"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(248,118,109,1)","opacity":0.55000000000000004,"size":[16.58735048415274,8.9409278806835975,12.028172058624255,8.6044676167235163,9.021669770032414],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(248,118,109,1)"}},"hoveron":"points","name":"Central Taiwan","legendgroup":"Central Taiwan","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","visible":true},{"x":[1.8512583487190752,2.1760912590556813],"y":[19,37],"text":["N_Incidence:   71<br />N_Deaths:  19<br />Region: Eastern Taiwan<br />N_Incidence:   71<br />Year: 2014<br />City: Taitung County<br />alpha: 0.3","N_Incidence:  150<br />N_Deaths:  37<br />Region: Eastern Taiwan<br />N_Incidence:  150<br />Year: 2014<br />City: Hualien County<br />alpha: 0.3"],"frame":"2014","ids":["Taitung County","Hualien County"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(163,165,0,1)","opacity":0.55000000000000004,"size":[6.6778058065727031,8.0080066899095588],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(163,165,0,1)"}},"hoveron":"points","name":"Eastern Taiwan","legendgroup":"Eastern Taiwan","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","visible":true},{"x":[3.2516382204482119,3.3571722577230334,3.0157787563890408,2.2787536009528289,2.3242824552976926,2.3424226808222062,2.3404441148401185],"y":[289,310,175,28,36,38,26],"text":["N_Incidence: 1785<br />N_Deaths: 289<br />Region: Northern Taiwan<br />N_Incidence: 1785<br />Year: 2014<br />City: Taipei City<br />alpha: 0.3","N_Incidence: 2276<br />N_Deaths: 310<br />Region: Northern Taiwan<br />N_Incidence: 2276<br />Year: 2014<br />City: New Taipei City<br />alpha: 0.3","N_Incidence: 1037<br />N_Deaths: 175<br />Region: Northern Taiwan<br />N_Incidence: 1037<br />Year: 2014<br />City: Taoyuan City<br />alpha: 0.3","N_Incidence:  190<br />N_Deaths:  28<br />Region: Northern Taiwan<br />N_Incidence:  190<br />Year: 2014<br />City: Yilan County<br />alpha: 0.3","N_Incidence:  211<br />N_Deaths:  36<br />Region: Northern Taiwan<br />N_Incidence:  211<br />Year: 2014<br />City: Hsinchu County<br />alpha: 0.3","N_Incidence:  220<br />N_Deaths:  38<br />Region: Northern Taiwan<br />N_Incidence:  220<br />Year: 2014<br />City: Keelung City<br />alpha: 0.3","N_Incidence:  219<br />N_Deaths:  26<br />Region: Northern Taiwan<br />N_Incidence:  219<br />Year: 2014<br />City: Hsinchu City<br />alpha: 0.3"],"frame":"2014","ids":["Taipei City","New Taipei City","Taoyuan City","Yilan County","Hsinchu County","Keelung City","Hsinchu City"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,191,125,1)","opacity":0.55000000000000004,"size":[18.411015117087501,20.302255723649854,14.929426600772819,8.5418846813308846,8.7994927382272632,8.9059349326555743,8.8942174147653006],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,191,125,1)"}},"hoveron":"points","name":"Northern Taiwan","legendgroup":"Northern Taiwan","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","visible":true},{"x":[0.3010299956639812,1.3617278360175928],"y":[2,1],"text":["N_Incidence:    2<br />N_Deaths:   2<br />Region: Outlying Islands<br />N_Incidence:    2<br />Year: 2014<br />City: Lienchiang County<br />alpha: 0.3","N_Incidence:   23<br />N_Deaths:   1<br />Region: Outlying Islands<br />N_Incidence:   23<br />Year: 2014<br />City: Kinmen County<br />alpha: 0.3"],"frame":"2014","ids":["Lienchiang County","Kinmen County"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,176,246,1)","opacity":0.55000000000000004,"size":[4.1259380669795744,5.4043368647924295],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,176,246,1)"}},"hoveron":"points","name":"Outlying Islands","legendgroup":"Outlying Islands","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","visible":true},{"x":[2.9595183769729982,3.185542154854375,2.3053513694466239,2.5276299008713385,1.3617278360175928,2.2068258760318495],"y":[200,253,34,73,5,29],"text":["N_Incidence:  911<br />N_Deaths: 200<br />Region: Southern Taiwan<br />N_Incidence:  911<br />Year: 2014<br />City: Tainan City<br />alpha: 0.3","N_Incidence: 1533<br />N_Deaths: 253<br />Region: Southern Taiwan<br />N_Incidence: 1533<br />Year: 2014<br />City: Kaohsiung City<br />alpha: 0.3","N_Incidence:  202<br />N_Deaths:  34<br />Region: Southern Taiwan<br />N_Incidence:  202<br />Year: 2014<br />City: Chiayi County<br />alpha: 0.3","N_Incidence:  337<br />N_Deaths:  73<br />Region: Southern Taiwan<br />N_Incidence:  337<br />Year: 2014<br />City: Pingtung County<br />alpha: 0.3","N_Incidence:   23<br />N_Deaths:   5<br />Region: Southern Taiwan<br />N_Incidence:   23<br />Year: 2014<br />City: Penghu County<br />alpha: 0.3","N_Incidence:  161<br />N_Deaths:  29<br />Region: Southern Taiwan<br />N_Incidence:  161<br />Year: 2014<br />City: Chiayi City<br />alpha: 0.3"],"frame":"2014","ids":["Tainan City","Kaohsiung City","Chiayi County","Pingtung County","Penghu County","Chiayi City"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(231,107,243,1)","opacity":0.55000000000000004,"size":[14.229418391041682,17.338302123179094,8.6907441333976188,10.129337055422807,5.4043368647924295,8.1613124008834799],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(231,107,243,1)"}},"hoveron":"points","name":"Southern Taiwan","legendgroup":"Southern Taiwan","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","visible":true}],"traces":[0,1,2,3,4]},{"name":"2015","data":[{"x":[3.1699681739968923,2.3820170425748683,2.7664128471123997,2.330413773349191,2.3838153659804311],"y":[282,50,97,60,49],"text":["N_Incidence: 1479<br />N_Deaths: 282<br />Region: Central Taiwan<br />N_Incidence: 1479<br />Year: 2015<br />City: Taichung City<br />alpha: 0.3","N_Incidence:  241<br />N_Deaths:  50<br />Region: Central Taiwan<br />N_Incidence:  241<br />Year: 2015<br />City: Miaoli County<br />alpha: 0.3","N_Incidence:  584<br />N_Deaths:  97<br />Region: Central Taiwan<br />N_Incidence:  584<br />Year: 2015<br />City: Changhua County<br />alpha: 0.3","N_Incidence:  214<br />N_Deaths:  60<br />Region: Central Taiwan<br />N_Incidence:  214<br />Year: 2015<br />City: Nantou County<br />alpha: 0.3","N_Incidence:  242<br />N_Deaths:  49<br />Region: Central Taiwan<br />N_Incidence:  242<br />Year: 2015<br />City: Yunlin County<br />alpha: 0.3"],"frame":"2015","ids":["Taichung City","Miaoli County","Changhua County","Nantou County","Yunlin County"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(248,118,109,1)","opacity":0.55000000000000004,"size":[17.097198328401742,9.1460960716258093,12.143745389807727,8.8352224786583804,9.1572648006945503],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(248,118,109,1)"}},"hoveron":"points","name":"Central Taiwan","legendgroup":"Central Taiwan","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","visible":true},{"x":[2.0453229787866576,2.214843848047698],"y":[19,26],"text":["N_Incidence:  111<br />N_Deaths:  19<br />Region: Eastern Taiwan<br />N_Incidence:  111<br />Year: 2015<br />City: Taitung County<br />alpha: 0.3","N_Incidence:  164<br />N_Deaths:  26<br />Region: Eastern Taiwan<br />N_Incidence:  164<br />Year: 2015<br />City: Hualien County<br />alpha: 0.3"],"frame":"2015","ids":["Taitung County","Hualien County"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(163,165,0,1)","opacity":0.55000000000000004,"size":[7.4127116171579832,8.2022008592298263],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(163,165,0,1)"}},"hoveron":"points","name":"Eastern Taiwan","legendgroup":"Eastern Taiwan","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","visible":true},{"x":[3.288249225571986,3.3818367999983434,3.0051805125037805,2.330413773349191,2.3710678622717363,2.3031960574204891,2.3404441148401185],"y":[288,354,164,38,32,31,30],"text":["N_Incidence: 1942<br />N_Deaths: 288<br />Region: Northern Taiwan<br />N_Incidence: 1942<br />Year: 2015<br />City: Taipei City<br />alpha: 0.3","N_Incidence: 2409<br />N_Deaths: 354<br />Region: Northern Taiwan<br />N_Incidence: 2409<br />Year: 2015<br />City: New Taipei City<br />alpha: 0.3","N_Incidence: 1012<br />N_Deaths: 164<br />Region: Northern Taiwan<br />N_Incidence: 1012<br />Year: 2015<br />City: Taoyuan City<br />alpha: 0.3","N_Incidence:  214<br />N_Deaths:  38<br />Region: Northern Taiwan<br />N_Incidence:  214<br />Year: 2015<br />City: Yilan County<br />alpha: 0.3","N_Incidence:  235<br />N_Deaths:  32<br />Region: Northern Taiwan<br />N_Incidence:  235<br />Year: 2015<br />City: Hsinchu County<br />alpha: 0.3","N_Incidence:  201<br />N_Deaths:  31<br />Region: Northern Taiwan<br />N_Incidence:  201<br />Year: 2015<br />City: Keelung City<br />alpha: 0.3","N_Incidence:  219<br />N_Deaths:  30<br />Region: Northern Taiwan<br />N_Incidence:  219<br />Year: 2015<br />City: Hsinchu City<br />alpha: 0.3"],"frame":"2015","ids":["Taipei City","New Taipei City","Taoyuan City","Yilan County","Hsinchu County","Keelung City","Hsinchu City"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,191,125,1)","opacity":0.55000000000000004,"size":[19.041259631167112,20.778368046604726,14.794074424018984,8.8352224786583804,9.0785893779162947,8.6785119436083082,8.8942174147653006],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,191,125,1)"}},"hoveron":"points","name":"Northern Taiwan","legendgroup":"Northern Taiwan","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","visible":true},{"x":[0,1.3010299956639813],"y":[0,1],"text":["N_Incidence:    1<br />N_Deaths:   0<br />Region: Outlying Islands<br />N_Incidence:    1<br />Year: 2015<br />City: Lienchiang County<br />alpha: 0.3","N_Incidence:   20<br />N_Deaths:   1<br />Region: Outlying Islands<br />N_Incidence:   20<br />Year: 2015<br />City: Kinmen County<br />alpha: 0.3"],"frame":"2015","ids":["Lienchiang County","Kinmen County"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,176,246,1)","opacity":0.55000000000000004,"size":[3.7795275590551185,5.2894959560784205],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,176,246,1)"}},"hoveron":"points","name":"Outlying Islands","legendgroup":"Outlying Islands","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","visible":true},{"x":[2.9722028383790646,3.1981069988734014,2.3364597338485296,2.5538830266438746,1.5185139398778875,2.1903316981702914],"y":[165,266,54,87,11,37],"text":["N_Incidence:  938<br />N_Deaths: 165<br />Region: Southern Taiwan<br />N_Incidence:  938<br />Year: 2015<br />City: Tainan City<br />alpha: 0.3","N_Incidence: 1578<br />N_Deaths: 266<br />Region: Southern Taiwan<br />N_Incidence: 1578<br />Year: 2015<br />City: Kaohsiung City<br />alpha: 0.3","N_Incidence:  217<br />N_Deaths:  54<br />Region: Southern Taiwan<br />N_Incidence:  217<br />Year: 2015<br />City: Chiayi County<br />alpha: 0.3","N_Incidence:  358<br />N_Deaths:  87<br />Region: Southern Taiwan<br />N_Incidence:  358<br />Year: 2015<br />City: Pingtung County<br />alpha: 0.3","N_Incidence:   33<br />N_Deaths:  11<br />Region: Southern Taiwan<br />N_Incidence:   33<br />Year: 2015<br />City: Penghu County<br />alpha: 0.3","N_Incidence:  155<br />N_Deaths:  37<br />Region: Southern Taiwan<br />N_Incidence:  155<br />Year: 2015<br />City: Chiayi City<br />alpha: 0.3"],"frame":"2015","ids":["Tainan City","Kaohsiung City","Chiayi County","Pingtung County","Penghu County","Chiayi City"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(231,107,243,1)","opacity":0.55000000000000004,"size":[14.383311076293191,17.5359943467429,8.8707014747747213,10.324761373073633,5.739121312876394,8.0783689099395541],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(231,107,243,1)"}},"hoveron":"points","name":"Southern Taiwan","legendgroup":"Southern Taiwan","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","visible":true}],"traces":[0,1,2,3,4]},{"name":"2016","data":[{"x":[3.1772478362556233,2.3820170425748683,2.7474118078864231,2.3541084391474008,2.428134794028789],"y":[273,40,110,58,53],"text":["N_Incidence: 1504<br />N_Deaths: 273<br />Region: Central Taiwan<br />N_Incidence: 1504<br />Year: 2016<br />City: Taichung City<br />alpha: 0.3","N_Incidence:  241<br />N_Deaths:  40<br />Region: Central Taiwan<br />N_Incidence:  241<br />Year: 2016<br />City: Miaoli County<br />alpha: 0.3","N_Incidence:  559<br />N_Deaths: 110<br />Region: Central Taiwan<br />N_Incidence:  559<br />Year: 2016<br />City: Changhua County<br />alpha: 0.3","N_Incidence:  226<br />N_Deaths:  58<br />Region: Central Taiwan<br />N_Incidence:  226<br />Year: 2016<br />City: Nantou County<br />alpha: 0.3","N_Incidence:  268<br />N_Deaths:  53<br />Region: Central Taiwan<br />N_Incidence:  268<br />Year: 2016<br />City: Yunlin County<br />alpha: 0.3"],"frame":"2016","ids":["Taichung City","Miaoli County","Changhua County","Nantou County","Yunlin County"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(248,118,109,1)","opacity":0.55000000000000004,"size":[17.209358560252468,9.1460960716258093,11.962444760167925,8.9756851779219673,9.4399218986862508],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(248,118,109,1)"}},"hoveron":"points","name":"Central Taiwan","legendgroup":"Central Taiwan","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","visible":true},{"x":[1.9777236052888478,2.1958996524092336],"y":[16,27],"text":["N_Incidence:   95<br />N_Deaths:  16<br />Region: Eastern Taiwan<br />N_Incidence:   95<br />Year: 2016<br />City: Taitung County<br />alpha: 0.3","N_Incidence:  157<br />N_Deaths:  27<br />Region: Eastern Taiwan<br />N_Incidence:  157<br />Year: 2016<br />City: Hualien County<br />alpha: 0.3"],"frame":"2016","ids":["Taitung County","Hualien County"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(163,165,0,1)","opacity":0.55000000000000004,"size":[7.1381020423806136,8.1061934162799254],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(163,165,0,1)"}},"hoveron":"points","name":"Eastern Taiwan","legendgroup":"Eastern Taiwan","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","visible":true},{"x":[3.2785249647370174,3.4039779636693548,3.030194785356751,2.3856062735983121,2.3873898263387292,2.3483048630481607,2.3654879848908998],"y":[302,331,164,32,33,34,46],"text":["N_Incidence: 1899<br />N_Deaths: 302<br />Region: Northern Taiwan<br />N_Incidence: 1899<br />Year: 2016<br />City: Taipei City<br />alpha: 0.3","N_Incidence: 2535<br />N_Deaths: 331<br />Region: Northern Taiwan<br />N_Incidence: 2535<br />Year: 2016<br />City: New Taipei City<br />alpha: 0.3","N_Incidence: 1072<br />N_Deaths: 164<br />Region: Northern Taiwan<br />N_Incidence: 1072<br />Year: 2016<br />City: Taoyuan City<br />alpha: 0.3","N_Incidence:  243<br />N_Deaths:  32<br />Region: Northern Taiwan<br />N_Incidence:  243<br />Year: 2016<br />City: Yilan County<br />alpha: 0.3","N_Incidence:  244<br />N_Deaths:  33<br />Region: Northern Taiwan<br />N_Incidence:  244<br />Year: 2016<br />City: Hsinchu County<br />alpha: 0.3","N_Incidence:  223<br />N_Deaths:  34<br />Region: Northern Taiwan<br />N_Incidence:  223<br />Year: 2016<br />City: Keelung City<br />alpha: 0.3","N_Incidence:  232<br />N_Deaths:  46<br />Region: Northern Taiwan<br />N_Incidence:  232<br />Year: 2016<br />City: Hsinchu City<br />alpha: 0.3"],"frame":"2016","ids":["Taipei City","New Taipei City","Taoyuan City","Yilan County","Hsinchu County","Keelung City","Hsinchu City"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,191,125,1)","opacity":0.55000000000000004,"size":[18.871262234728125,21.217434777560911,15.116205072353011,9.1684103820636267,9.1795329590632182,8.9409278806835975,9.044511456476922],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,191,125,1)"}},"hoveron":"points","name":"Northern Taiwan","legendgroup":"Northern Taiwan","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","visible":true},{"x":[0.3010299956639812,1.4623979978989561],"y":[0,9],"text":["N_Incidence:    2<br />N_Deaths:   0<br />Region: Outlying Islands<br />N_Incidence:    2<br />Year: 2016<br />City: Lienchiang County<br />alpha: 0.3","N_Incidence:   29<br />N_Deaths:   9<br />Region: Outlying Islands<br />N_Incidence:   29<br />Year: 2016<br />City: Kinmen County<br />alpha: 0.3"],"frame":"2016","ids":["Lienchiang County","Kinmen County"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,176,246,1)","opacity":0.55000000000000004,"size":[4.1259380669795744,5.6125596700704827],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,176,246,1)"}},"hoveron":"points","name":"Outlying Islands","legendgroup":"Outlying Islands","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","visible":true},{"x":[2.9965116721541785,3.1900514177592059,2.3404441148401185,2.5888317255942073,1.5910646070264991,2.2121876044039577],"y":[188,294,47,86,6,27],"text":["N_Incidence:  992<br />N_Deaths: 188<br />Region: Southern Taiwan<br />N_Incidence:  992<br />Year: 2016<br />City: Tainan City<br />alpha: 0.3","N_Incidence: 1549<br />N_Deaths: 294<br />Region: Southern Taiwan<br />N_Incidence: 1549<br />Year: 2016<br />City: Kaohsiung City<br />alpha: 0.3","N_Incidence:  219<br />N_Deaths:  47<br />Region: Southern Taiwan<br />N_Incidence:  219<br />Year: 2016<br />City: Chiayi County<br />alpha: 0.3","N_Incidence:  388<br />N_Deaths:  86<br />Region: Southern Taiwan<br />N_Incidence:  388<br />Year: 2016<br />City: Pingtung County<br />alpha: 0.3","N_Incidence:   39<br />N_Deaths:   6<br />Region: Southern Taiwan<br />N_Incidence:   39<br />Year: 2016<br />City: Penghu County<br />alpha: 0.3","N_Incidence:  163<br />N_Deaths:  27<br />Region: Southern Taiwan<br />N_Incidence:  163<br />Year: 2016<br />City: Chiayi City<br />alpha: 0.3"],"frame":"2016","ids":["Tainan City","Kaohsiung City","Chiayi County","Pingtung County","Penghu County","Chiayi City"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(231,107,243,1)","opacity":0.55000000000000004,"size":[14.684583168288647,17.40892121837625,8.8942174147653006,10.594224388715684,5.914945344880234,8.1886135051529898],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(231,107,243,1)"}},"hoveron":"points","name":"Southern Taiwan","legendgroup":"Southern Taiwan","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","visible":true}],"traces":[0,1,2,3,4]},{"name":"2017","data":[{"x":[3.2265999052073573,2.5078558716958308,2.7895807121644256,2.4048337166199381,2.4814426285023048],"y":[268,50,124,52,48],"text":["N_Incidence: 1685<br />N_Deaths: 268<br />Region: Central Taiwan<br />N_Incidence: 1685<br />Year: 2017<br />City: Taichung City<br />alpha: 0.3","N_Incidence:  322<br />N_Deaths:  50<br />Region: Central Taiwan<br />N_Incidence:  322<br />Year: 2017<br />City: Miaoli County<br />alpha: 0.3","N_Incidence:  616<br />N_Deaths: 124<br />Region: Central Taiwan<br />N_Incidence:  616<br />Year: 2017<br />City: Changhua County<br />alpha: 0.3","N_Incidence:  254<br />N_Deaths:  52<br />Region: Central Taiwan<br />N_Incidence:  254<br />Year: 2017<br />City: Nantou County<br />alpha: 0.3","N_Incidence:  303<br />N_Deaths:  48<br />Region: Central Taiwan<br />N_Incidence:  303<br />Year: 2017<br />City: Yunlin County<br />alpha: 0.3"],"frame":"2017","ids":["Taichung City","Miaoli County","Changhua County","Nantou County","Yunlin County"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(248,118,109,1)","opacity":0.55000000000000004,"size":[17.995026289694447,9.985982025185848,12.370228787726456,9.2895239946366726,9.79950035634789],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(248,118,109,1)"}},"hoveron":"points","name":"Central Taiwan","legendgroup":"Central Taiwan","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","visible":true},{"x":[2.0718820073061255,2.2430380486862944],"y":[16,33],"text":["N_Incidence:  118<br />N_Deaths:  16<br />Region: Eastern Taiwan<br />N_Incidence:  118<br />Year: 2017<br />City: Taitung County<br />alpha: 0.3","N_Incidence:  175<br />N_Deaths:  33<br />Region: Eastern Taiwan<br />N_Incidence:  175<br />Year: 2017<br />City: Hualien County<br />alpha: 0.3"],"frame":"2017","ids":["Taitung County","Hualien County"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(163,165,0,1)","opacity":0.55000000000000004,"size":[7.5265301050985771,8.3489959920441805],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(163,165,0,1)"}},"hoveron":"points","name":"Eastern Taiwan","legendgroup":"Eastern Taiwan","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","visible":true},{"x":[3.3165993020938607,3.4224256763712044,3.0802656273398448,2.3909351071033793,2.4533183400470375,2.3344537511509307,2.4727564493172123],"y":[323,405,196,44,28,43,32],"text":["N_Incidence: 2073<br />N_Deaths: 323<br />Region: Northern Taiwan<br />N_Incidence: 2073<br />Year: 2017<br />City: Taipei City<br />alpha: 0.3","N_Incidence: 2645<br />N_Deaths: 405<br />Region: Northern Taiwan<br />N_Incidence: 2645<br />Year: 2017<br />City: New Taipei City<br />alpha: 0.3","N_Incidence: 1203<br />N_Deaths: 196<br />Region: Northern Taiwan<br />N_Incidence: 1203<br />Year: 2017<br />City: Taoyuan City<br />alpha: 0.3","N_Incidence:  246<br />N_Deaths:  44<br />Region: Northern Taiwan<br />N_Incidence:  246<br />Year: 2017<br />City: Yilan County<br />alpha: 0.3","N_Incidence:  284<br />N_Deaths:  28<br />Region: Northern Taiwan<br />N_Incidence:  284<br />Year: 2017<br />City: Hsinchu County<br />alpha: 0.3","N_Incidence:  216<br />N_Deaths:  43<br />Region: Northern Taiwan<br />N_Incidence:  216<br />Year: 2017<br />City: Keelung City<br />alpha: 0.3","N_Incidence:  297<br />N_Deaths:  32<br />Region: Northern Taiwan<br />N_Incidence:  297<br />Year: 2017<br />City: Hsinchu City<br />alpha: 0.3"],"frame":"2017","ids":["Taipei City","New Taipei City","Taoyuan City","Yilan County","Hsinchu County","Keelung City","Hsinchu City"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,191,125,1)","opacity":0.55000000000000004,"size":[19.547866002943067,21.591900634006958,15.789535405870915,9.2017096659303199,9.6070543003181612,8.8589026781128961,9.7393992892303629],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,191,125,1)"}},"hoveron":"points","name":"Northern Taiwan","legendgroup":"Northern Taiwan","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","visible":true},{"x":[0.77815125038364363,1.568201724066995],"y":[0,7],"text":["N_Incidence:    6<br />N_Deaths:   0<br />Region: Outlying Islands<br />N_Incidence:    6<br />Year: 2017<br />City: Lienchiang County<br />alpha: 0.3","N_Incidence:   37<br />N_Deaths:   7<br />Region: Outlying Islands<br />N_Incidence:   37<br />Year: 2017<br />City: Kinmen County<br />alpha: 0.3"],"frame":"2017","ids":["Lienchiang County","Kinmen County"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,176,246,1)","opacity":0.55000000000000004,"size":[4.5541250028944331,5.8579906066018577],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,176,246,1)"}},"hoveron":"points","name":"Outlying Islands","legendgroup":"Outlying Islands","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","visible":true},{"x":[3.0526939419249679,3.2469906992415498,2.3673559210260189,2.6283889300503116,1.6334684555795864,2.2455126678141499],"y":[222,301,43,101,8,33],"text":["N_Incidence: 1129<br />N_Deaths: 222<br />Region: Southern Taiwan<br />N_Incidence: 1129<br />Year: 2017<br />City: Tainan City<br />alpha: 0.3","N_Incidence: 1766<br />N_Deaths: 301<br />Region: Southern Taiwan<br />N_Incidence: 1766<br />Year: 2017<br />City: Kaohsiung City<br />alpha: 0.3","N_Incidence:  233<br />N_Deaths:  43<br />Region: Southern Taiwan<br />N_Incidence:  233<br />Year: 2017<br />City: Chiayi County<br />alpha: 0.3","N_Incidence:  425<br />N_Deaths: 101<br />Region: Southern Taiwan<br />N_Incidence:  425<br />Year: 2017<br />City: Pingtung County<br />alpha: 0.3","N_Incidence:   43<br />N_Deaths:   8<br />Region: Southern Taiwan<br />N_Incidence:   43<br />Year: 2017<br />City: Penghu County<br />alpha: 0.3","N_Incidence:  176<br />N_Deaths:  33<br />Region: Southern Taiwan<br />N_Incidence:  176<br />Year: 2017<br />City: Chiayi City<br />alpha: 0.3"],"frame":"2017","ids":["Tainan City","Kaohsiung City","Chiayi County","Pingtung County","Penghu County","Chiayi City"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(231,107,243,1)","opacity":0.55000000000000004,"size":[15.413970851303418,18.332892242208192,9.0558952187345838,10.912556492138421,6.0245242361172835,8.3621078365935286],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(231,107,243,1)"}},"hoveron":"points","name":"Southern Taiwan","legendgroup":"Southern Taiwan","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","visible":true}],"traces":[0,1,2,3,4]},{"name":"2018","data":[{"x":[3.2528530309798933,2.4727564493172123,2.8182258936139557,2.4393326938302629,2.503790683057181],"y":[265,49,108,59,57],"text":["N_Incidence: 1790<br />N_Deaths: 265<br />Region: Central Taiwan<br />N_Incidence: 1790<br />Year: 2018<br />City: Taichung City<br />alpha: 0.3","N_Incidence:  297<br />N_Deaths:  49<br />Region: Central Taiwan<br />N_Incidence:  297<br />Year: 2018<br />City: Miaoli County<br />alpha: 0.3","N_Incidence:  658<br />N_Deaths: 108<br />Region: Central Taiwan<br />N_Incidence:  658<br />Year: 2018<br />City: Changhua County<br />alpha: 0.3","N_Incidence:  275<br />N_Deaths:  59<br />Region: Central Taiwan<br />N_Incidence:  275<br />Year: 2018<br />City: Nantou County<br />alpha: 0.3","N_Incidence:  319<br />N_Deaths:  57<br />Region: Central Taiwan<br />N_Incidence:  319<br />Year: 2018<br />City: Yunlin County<br />alpha: 0.3"],"frame":"2018","ids":["Taichung City","Miaoli County","Changhua County","Nantou County","Yunlin County"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(248,118,109,1)","opacity":0.55000000000000004,"size":[18.431504536953316,9.7393992892303629,12.658725590426833,9.513641767904776,9.9569118210346694],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(248,118,109,1)"}},"hoveron":"points","name":"Central Taiwan","legendgroup":"Central Taiwan","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","visible":true},{"x":[2.0293837776852097,2.214843848047698],"y":[26,33],"text":["N_Incidence:  107<br />N_Deaths:  26<br />Region: Eastern Taiwan<br />N_Incidence:  107<br />Year: 2018<br />City: Taitung County<br />alpha: 0.3","N_Incidence:  164<br />N_Deaths:  33<br />Region: Eastern Taiwan<br />N_Incidence:  164<br />Year: 2018<br />City: Hualien County<br />alpha: 0.3"],"frame":"2018","ids":["Taitung County","Hualien County"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(163,165,0,1)","opacity":0.55000000000000004,"size":[7.3460420255967698,8.2022008592298263],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(163,165,0,1)"}},"hoveron":"points","name":"Eastern Taiwan","legendgroup":"Eastern Taiwan","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","visible":true},{"x":[3.3374592612906562,3.4452927694259716,3.068556895072363,2.3617278360175931,2.4653828514484184,2.3201462861110542,2.4149733479708178],"y":[321,404,157,45,47,51,54],"text":["N_Incidence: 2175<br />N_Deaths: 321<br />Region: Northern Taiwan<br />N_Incidence: 2175<br />Year: 2018<br />City: Taipei City<br />alpha: 0.3","N_Incidence: 2788<br />N_Deaths: 404<br />Region: Northern Taiwan<br />N_Incidence: 2788<br />Year: 2018<br />City: New Taipei City<br />alpha: 0.3","N_Incidence: 1171<br />N_Deaths: 157<br />Region: Northern Taiwan<br />N_Incidence: 1171<br />Year: 2018<br />City: Taoyuan City<br />alpha: 0.3","N_Incidence:  230<br />N_Deaths:  45<br />Region: Northern Taiwan<br />N_Incidence:  230<br />Year: 2018<br />City: Yilan County<br />alpha: 0.3","N_Incidence:  292<br />N_Deaths:  47<br />Region: Northern Taiwan<br />N_Incidence:  292<br />Year: 2018<br />City: Hsinchu County<br />alpha: 0.3","N_Incidence:  209<br />N_Deaths:  51<br />Region: Northern Taiwan<br />N_Incidence:  209<br />Year: 2018<br />City: Keelung City<br />alpha: 0.3","N_Incidence:  260<br />N_Deaths:  54<br />Region: Northern Taiwan<br />N_Incidence:  260<br />Year: 2018<br />City: Hsinchu City<br />alpha: 0.3"],"frame":"2018","ids":["Taipei City","New Taipei City","Taoyuan City","Yilan County","Hsinchu County","Keelung City","Hsinchu City"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,191,125,1)","opacity":0.55000000000000004,"size":[19.931323798515407,22.067246631737138,15.628590003002385,9.021669770032414,9.6888481494563248,8.7755309537797306,9.3544770799139698],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,191,125,1)"}},"hoveron":"points","name":"Northern Taiwan","legendgroup":"Northern Taiwan","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","visible":true},{"x":[0.69897000433601886,1.568201724066995],"y":[0,12],"text":["N_Incidence:    5<br />N_Deaths:   0<br />Region: Outlying Islands<br />N_Incidence:    5<br />Year: 2018<br />City: Lienchiang County<br />alpha: 0.3","N_Incidence:   37<br />N_Deaths:  12<br />Region: Outlying Islands<br />N_Incidence:   37<br />Year: 2018<br />City: Kinmen County<br />alpha: 0.3"],"frame":"2018","ids":["Lienchiang County","Kinmen County"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,176,246,1)","opacity":0.55000000000000004,"size":[4.4723485749040313,5.8579906066018577],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,176,246,1)"}},"hoveron":"points","name":"Outlying Islands","legendgroup":"Outlying Islands","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","visible":true},{"x":[3.0588054866759067,3.2360331471176358,2.3560258571931225,2.6304278750250241,1.3979400086720377,2.1903316981702914],"y":[221,328,45,91,12,33],"text":["N_Incidence: 1145<br />N_Deaths: 221<br />Region: Southern Taiwan<br />N_Incidence: 1145<br />Year: 2018<br />City: Tainan City<br />alpha: 0.3","N_Incidence: 1722<br />N_Deaths: 328<br />Region: Southern Taiwan<br />N_Incidence: 1722<br />Year: 2018<br />City: Kaohsiung City<br />alpha: 0.3","N_Incidence:  227<br />N_Deaths:  45<br />Region: Southern Taiwan<br />N_Incidence:  227<br />Year: 2018<br />City: Chiayi County<br />alpha: 0.3","N_Incidence:  427<br />N_Deaths:  91<br />Region: Southern Taiwan<br />N_Incidence:  427<br />Year: 2018<br />City: Pingtung County<br />alpha: 0.3","N_Incidence:   25<br />N_Deaths:  12<br />Region: Southern Taiwan<br />N_Incidence:   25<br />Year: 2018<br />City: Penghu County<br />alpha: 0.3","N_Incidence:  155<br />N_Deaths:  33<br />Region: Southern Taiwan<br />N_Incidence:  155<br />Year: 2018<br />City: Chiayi City<br />alpha: 0.3"],"frame":"2018","ids":["Tainan City","Kaohsiung City","Chiayi County","Pingtung County","Penghu County","Chiayi City"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(231,107,243,1)","opacity":0.55000000000000004,"size":[15.496194088428956,18.15034566523217,8.987219393266173,10.929359881578808,5.4765855309616525,8.0783689099395541],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(231,107,243,1)"}},"hoveron":"points","name":"Southern Taiwan","legendgroup":"Southern Taiwan","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","visible":true}],"traces":[0,1,2,3,4]},{"name":"2019","data":[{"x":[3.2704459080179626,2.5051499783199058,2.8293037728310249,2.3926969532596658,2.4983105537896004],"y":[308,61,134,65,57],"text":["N_Incidence: 1864<br />N_Deaths: 308<br />Region: Central Taiwan<br />N_Incidence: 1864<br />Year: 2019<br />City: Taichung City<br />alpha: 0.3","N_Incidence:  320<br />N_Deaths:  61<br />Region: Central Taiwan<br />N_Incidence:  320<br />Year: 2019<br />City: Miaoli County<br />alpha: 0.3","N_Incidence:  675<br />N_Deaths: 134<br />Region: Central Taiwan<br />N_Incidence:  675<br />Year: 2019<br />City: Changhua County<br />alpha: 0.3","N_Incidence:  247<br />N_Deaths:  65<br />Region: Central Taiwan<br />N_Incidence:  247<br />Year: 2019<br />City: Nantou County<br />alpha: 0.3","N_Incidence:  315<br />N_Deaths:  57<br />Region: Central Taiwan<br />N_Incidence:  315<br />Year: 2019<br />City: Yunlin County<br />alpha: 0.3"],"frame":"2019","ids":["Taichung City","Miaoli County","Changhua County","Nantou County","Yunlin County"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(248,118,109,1)","opacity":0.55000000000000004,"size":[18.731465464253038,9.9666170654509276,12.772867414766317,9.2127640751768016,9.9179373987571502],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(248,118,109,1)"}},"hoveron":"points","name":"Central Taiwan","legendgroup":"Central Taiwan","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","visible":true},{"x":[2.0211892990699383,2.3283796034387376],"y":[31,46],"text":["N_Incidence:  105<br />N_Deaths:  31<br />Region: Eastern Taiwan<br />N_Incidence:  105<br />Year: 2019<br />City: Taitung County<br />alpha: 0.3","N_Incidence:  213<br />N_Deaths:  46<br />Region: Eastern Taiwan<br />N_Incidence:  213<br />Year: 2019<br />City: Hualien County<br />alpha: 0.3"],"frame":"2019","ids":["Taitung County","Hualien County"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(163,165,0,1)","opacity":0.55000000000000004,"size":[7.3122354382959029,8.8233406880381668],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(163,165,0,1)"}},"hoveron":"points","name":"Eastern Taiwan","legendgroup":"Eastern Taiwan","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","visible":true},{"x":[3.3246939138617746,3.4583356259919475,3.1319392952104246,2.3673559210260189,2.4548448600085102,2.3944516808262164,2.4548448600085102],"y":[378,410,195,54,53,47,42],"text":["N_Incidence: 2112<br />N_Deaths: 378<br />Region: Northern Taiwan<br />N_Incidence: 2112<br />Year: 2019<br />City: Taipei City<br />alpha: 0.3","N_Incidence: 2873<br />N_Deaths: 410<br />Region: Northern Taiwan<br />N_Incidence: 2873<br />Year: 2019<br />City: New Taipei City<br />alpha: 0.3","N_Incidence: 1355<br />N_Deaths: 195<br />Region: Northern Taiwan<br />N_Incidence: 1355<br />Year: 2019<br />City: Taoyuan City<br />alpha: 0.3","N_Incidence:  233<br />N_Deaths:  54<br />Region: Northern Taiwan<br />N_Incidence:  233<br />Year: 2019<br />City: Yilan County<br />alpha: 0.3","N_Incidence:  285<br />N_Deaths:  53<br />Region: Northern Taiwan<br />N_Incidence:  285<br />Year: 2019<br />City: Hsinchu County<br />alpha: 0.3","N_Incidence:  248<br />N_Deaths:  47<br />Region: Northern Taiwan<br />N_Incidence:  248<br />Year: 2019<br />City: Keelung City<br />alpha: 0.3","N_Incidence:  285<br />N_Deaths:  42<br />Region: Northern Taiwan<br />N_Incidence:  285<br />Year: 2019<br />City: Hsinchu City<br />alpha: 0.3"],"frame":"2019","ids":["Taipei City","New Taipei City","Taoyuan City","Yilan County","Hsinchu County","Keelung City","Hsinchu City"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,191,125,1)","opacity":0.55000000000000004,"size":[19.695573130773404,22.344028340960854,16.526304601141089,9.0558952187345838,9.6173412046022531,9.2237960388528002,9.6173412046022531],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,191,125,1)"}},"hoveron":"points","name":"Northern Taiwan","legendgroup":"Northern Taiwan","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","visible":true},{"x":[0,1.4771212547196624],"y":[0,12],"text":["N_Incidence:    1<br />N_Deaths:   0<br />Region: Outlying Islands<br />N_Incidence:    1<br />Year: 2019<br />City: Lienchiang County<br />alpha: 0.3","N_Incidence:   30<br />N_Deaths:  12<br />Region: Outlying Islands<br />N_Incidence:   30<br />Year: 2019<br />City: Kinmen County<br />alpha: 0.3"],"frame":"2019","ids":["Lienchiang County","Kinmen County"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,176,246,1)","opacity":0.55000000000000004,"size":[3.7795275590551185,5.6450052351514906],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,176,246,1)"}},"hoveron":"points","name":"Outlying Islands","legendgroup":"Outlying Islands","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","visible":true},{"x":[3.0492180226701815,3.2574385668598138,2.406540180433955,2.6627578316815739,1.5314789170422551,2.2695129442179165],"y":[219,334,37,112,12,26],"text":["N_Incidence: 1120<br />N_Deaths: 219<br />Region: Southern Taiwan<br />N_Incidence: 1120<br />Year: 2019<br />City: Tainan City<br />alpha: 0.3","N_Incidence: 1809<br />N_Deaths: 334<br />Region: Southern Taiwan<br />N_Incidence: 1809<br />Year: 2019<br />City: Kaohsiung City<br />alpha: 0.3","N_Incidence:  255<br />N_Deaths:  37<br />Region: Southern Taiwan<br />N_Incidence:  255<br />Year: 2019<br />City: Chiayi County<br />alpha: 0.3","N_Incidence:  460<br />N_Deaths: 112<br />Region: Southern Taiwan<br />N_Incidence:  460<br />Year: 2019<br />City: Pingtung County<br />alpha: 0.3","N_Incidence:   34<br />N_Deaths:  12<br />Region: Southern Taiwan<br />N_Incidence:   34<br />Year: 2019<br />City: Penghu County<br />alpha: 0.3","N_Incidence:  186<br />N_Deaths:  26<br />Region: Southern Taiwan<br />N_Incidence:  186<br />Year: 2019<br />City: Chiayi City<br />alpha: 0.3"],"frame":"2019","ids":["Tainan City","Kaohsiung City","Chiayi County","Pingtung County","Penghu County","Chiayi City"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(231,107,243,1)","opacity":0.55000000000000004,"size":[15.36746389649403,18.509104400256899,9.3004025766698017,11.201125106768167,5.7695044232462189,8.4912198665056788],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(231,107,243,1)"}},"hoveron":"points","name":"Southern Taiwan","legendgroup":"Southern Taiwan","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","visible":true}],"traces":[0,1,2,3,4]},{"name":"2020","data":[{"x":[3.2605483726369795,2.4608978427565478,2.8254261177678233,2.4533183400470375,2.5390760987927767],"y":[344,66,126,62,63],"text":["N_Incidence: 1822<br />N_Deaths: 344<br />Region: Central Taiwan<br />N_Incidence: 1822<br />Year: 2020<br />City: Taichung City<br />alpha: 0.3","N_Incidence:  289<br />N_Deaths:  66<br />Region: Central Taiwan<br />N_Incidence:  289<br />Year: 2020<br />City: Miaoli County<br />alpha: 0.3","N_Incidence:  669<br />N_Deaths: 126<br />Region: Central Taiwan<br />N_Incidence:  669<br />Year: 2020<br />City: Changhua County<br />alpha: 0.3","N_Incidence:  284<br />N_Deaths:  62<br />Region: Central Taiwan<br />N_Incidence:  284<br />Year: 2020<br />City: Nantou County<br />alpha: 0.3","N_Incidence:  346<br />N_Deaths:  63<br />Region: Central Taiwan<br />N_Incidence:  346<br />Year: 2020<br />City: Yunlin County<br />alpha: 0.3"],"frame":"2020","ids":["Taichung City","Miaoli County","Changhua County","Nantou County","Yunlin County"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(248,118,109,1)","opacity":0.55000000000000004,"size":[18.56196433520519,9.6583088205189451,12.732748226520018,9.6070543003181612,10.213817170206111],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(248,118,109,1)"}},"hoveron":"points","name":"Central Taiwan","legendgroup":"Central Taiwan","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","visible":true},{"x":[2.0681858617461617,2.3384564936046046],"y":[18,45],"text":["N_Incidence:  117<br />N_Deaths:  18<br />Region: Eastern Taiwan<br />N_Incidence:  117<br />Year: 2020<br />City: Taitung County<br />alpha: 0.3","N_Incidence:  218<br />N_Deaths:  45<br />Region: Eastern Taiwan<br />N_Incidence:  218<br />Year: 2020<br />City: Hualien County<br />alpha: 0.3"],"frame":"2020","ids":["Taitung County","Hualien County"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(163,165,0,1)","opacity":0.55000000000000004,"size":[7.5104829112478626,8.8824729908723317],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(163,165,0,1)"}},"hoveron":"points","name":"Eastern Taiwan","legendgroup":"Eastern Taiwan","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","visible":true},{"x":[3.3201462861110542,3.4617985575251091,3.1277525158329733,2.3961993470957363,2.5024271199844326,2.3944516808262164,2.4183012913197452],"y":[354,460,188,43,47,45,43],"text":["N_Incidence: 2090<br />N_Deaths: 354<br />Region: Northern Taiwan<br />N_Incidence: 2090<br />Year: 2020<br />City: Taipei City<br />alpha: 0.3","N_Incidence: 2896<br />N_Deaths: 460<br />Region: Northern Taiwan<br />N_Incidence: 2896<br />Year: 2020<br />City: New Taipei City<br />alpha: 0.3","N_Incidence: 1342<br />N_Deaths: 188<br />Region: Northern Taiwan<br />N_Incidence: 1342<br />Year: 2020<br />City: Taoyuan City<br />alpha: 0.3","N_Incidence:  249<br />N_Deaths:  43<br />Region: Northern Taiwan<br />N_Incidence:  249<br />Year: 2020<br />City: Yilan County<br />alpha: 0.3","N_Incidence:  318<br />N_Deaths:  47<br />Region: Northern Taiwan<br />N_Incidence:  318<br />Year: 2020<br />City: Hsinchu County<br />alpha: 0.3","N_Incidence:  248<br />N_Deaths:  45<br />Region: Northern Taiwan<br />N_Incidence:  248<br />Year: 2020<br />City: Keelung City<br />alpha: 0.3","N_Incidence:  262<br />N_Deaths:  43<br />Region: Northern Taiwan<br />N_Incidence:  262<br />Year: 2020<br />City: Hsinchu City<br />alpha: 0.3"],"frame":"2020","ids":["Taipei City","New Taipei City","Taoyuan City","Yilan County","Hsinchu County","Keelung City","Hsinchu City"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,191,125,1)","opacity":0.55000000000000004,"size":[19.612420578367878,22.418215678163438,16.464964951618438,9.2348056931303226,9.9471913047656564,9.2237960388528002,9.3759605873442347],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,191,125,1)"}},"hoveron":"points","name":"Northern Taiwan","legendgroup":"Northern Taiwan","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","visible":true},{"x":[0.6020599913279624,1.5797835966168101],"y":[1,7],"text":["N_Incidence:    4<br />N_Deaths:   1<br />Region: Outlying Islands<br />N_Incidence:    4<br />Year: 2020<br />City: Lienchiang County<br />alpha: 0.3","N_Incidence:   38<br />N_Deaths:   7<br />Region: Outlying Islands<br />N_Incidence:   38<br />Year: 2020<br />City: Kinmen County<br />alpha: 0.3"],"frame":"2020","ids":["Lienchiang County","Kinmen County"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,176,246,1)","opacity":0.55000000000000004,"size":[4.3795281590560187,5.8866604167595771],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,176,246,1)"}},"hoveron":"points","name":"Outlying Islands","legendgroup":"Outlying Islands","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","visible":true},{"x":[3.1027766148834415,3.2720737875000099,2.4623979978989561,2.6910814921229687,1.6532125137753437,2.271841606536499],"y":[211,332,54,99,15,32],"text":["N_Incidence: 1267<br />N_Deaths: 211<br />Region: Southern Taiwan<br />N_Incidence: 1267<br />Year: 2020<br />City: Tainan City<br />alpha: 0.3","N_Incidence: 1871<br />N_Deaths: 332<br />Region: Southern Taiwan<br />N_Incidence: 1871<br />Year: 2020<br />City: Kaohsiung City<br />alpha: 0.3","N_Incidence:  290<br />N_Deaths:  54<br />Region: Southern Taiwan<br />N_Incidence:  290<br />Year: 2020<br />City: Chiayi County<br />alpha: 0.3","N_Incidence:  491<br />N_Deaths:  99<br />Region: Southern Taiwan<br />N_Incidence:  491<br />Year: 2020<br />City: Pingtung County<br />alpha: 0.3","N_Incidence:   45<br />N_Deaths:  15<br />Region: Southern Taiwan<br />N_Incidence:   45<br />Year: 2020<br />City: Penghu County<br />alpha: 0.3","N_Incidence:  187<br />N_Deaths:  32<br />Region: Southern Taiwan<br />N_Incidence:  187<br />Year: 2020<br />City: Chiayi City<br />alpha: 0.3"],"frame":"2020","ids":["Tainan City","Kaohsiung City","Chiayi County","Pingtung County","Penghu County","Chiayi City"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(231,107,243,1)","opacity":0.55000000000000004,"size":[16.105123035161238,18.759529187923441,9.6685061937708809,11.447651032254752,6.0773549154988347,8.5039370078740166],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(231,107,243,1)"}},"hoveron":"points","name":"Southern Taiwan","legendgroup":"Southern Taiwan","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","visible":true}],"traces":[0,1,2,3,4]},{"name":"2021","data":[{"x":[3.274850320016665,2.5250448070368452,2.8561244442423002,2.4857214264815801,2.469822015978163],"y":[380,72,135,58,91],"text":["N_Incidence: 1883<br />N_Deaths: 380<br />Region: Central Taiwan<br />N_Incidence: 1883<br />Year: 2021<br />City: Taichung City<br />alpha: 0.3","N_Incidence:  335<br />N_Deaths:  72<br />Region: Central Taiwan<br />N_Incidence:  335<br />Year: 2021<br />City: Miaoli County<br />alpha: 0.3","N_Incidence:  718<br />N_Deaths: 135<br />Region: Central Taiwan<br />N_Incidence:  718<br />Year: 2021<br />City: Changhua County<br />alpha: 0.3","N_Incidence:  306<br />N_Deaths:  58<br />Region: Central Taiwan<br />N_Incidence:  306<br />Year: 2021<br />City: Nantou County<br />alpha: 0.3","N_Incidence:  295<br />N_Deaths:  91<br />Region: Central Taiwan<br />N_Incidence:  295<br />Year: 2021<br />City: Yunlin County<br />alpha: 0.3"],"frame":"2021","ids":["Taichung City","Miaoli County","Changhua County","Nantou County","Yunlin County"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(248,118,109,1)","opacity":0.55000000000000004,"size":[18.807516502386939,10.110410606479098,13.055311735088118,9.8293269937592491,9.7192304607279887],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(248,118,109,1)"}},"hoveron":"points","name":"Central Taiwan","legendgroup":"Central Taiwan","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","visible":true},{"x":[2.0827853703164503,2.3159703454569178],"y":[27,38],"text":["N_Incidence:  121<br />N_Deaths:  27<br />Region: Eastern Taiwan<br />N_Incidence:  121<br />Year: 2021<br />City: Taitung County<br />alpha: 0.3","N_Incidence:  207<br />N_Deaths:  38<br />Region: Eastern Taiwan<br />N_Incidence:  207<br />Year: 2021<br />City: Hualien County<br />alpha: 0.3"],"frame":"2021","ids":["Taitung County","Hualien County"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(163,165,0,1)","opacity":0.55000000000000004,"size":[7.5742645459960576,8.7514536888461549],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(163,165,0,1)"}},"hoveron":"points","name":"Eastern Taiwan","legendgroup":"Eastern Taiwan","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","visible":true},{"x":[3.3053513694466239,3.4737788346467249,3.12515582958053,2.3979400086720375,2.5390760987927767,2.374748346010104,2.459392487759231],"y":[365,484,220,42,63,43,45],"text":["N_Incidence: 2020<br />N_Deaths: 365<br />Region: Northern Taiwan<br />N_Incidence: 2020<br />Year: 2021<br />City: Taipei City<br />alpha: 0.3","N_Incidence: 2977<br />N_Deaths: 484<br />Region: Northern Taiwan<br />N_Incidence: 2977<br />Year: 2021<br />City: New Taipei City<br />alpha: 0.3","N_Incidence: 1334<br />N_Deaths: 220<br />Region: Northern Taiwan<br />N_Incidence: 1334<br />Year: 2021<br />City: Taoyuan City<br />alpha: 0.3","N_Incidence:  250<br />N_Deaths:  42<br />Region: Northern Taiwan<br />N_Incidence:  250<br />Year: 2021<br />City: Yilan County<br />alpha: 0.3","N_Incidence:  346<br />N_Deaths:  63<br />Region: Northern Taiwan<br />N_Incidence:  346<br />Year: 2021<br />City: Hsinchu County<br />alpha: 0.3","N_Incidence:  237<br />N_Deaths:  43<br />Region: Northern Taiwan<br />N_Incidence:  237<br />Year: 2021<br />City: Keelung City<br />alpha: 0.3","N_Incidence:  288<br />N_Deaths:  45<br />Region: Northern Taiwan<br />N_Incidence:  288<br />Year: 2021<br />City: Hsinchu City<br />alpha: 0.3"],"frame":"2021","ids":["Taipei City","New Taipei City","Taoyuan City","Yilan County","Hsinchu County","Keelung City","Hsinchu City"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,191,125,1)","opacity":0.55000000000000004,"size":[19.344889249712008,22.677165354330711,16.427069609613394,9.2457931728100444,10.213817170206111,9.1011867589770077,9.6480937280727055],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,191,125,1)"}},"hoveron":"points","name":"Northern Taiwan","legendgroup":"Northern Taiwan","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","visible":true},{"x":[0.47712125471966244,1.4913616938342726],"y":[0,12],"text":["N_Incidence:    3<br />N_Deaths:   0<br />Region: Outlying Islands<br />N_Incidence:    3<br />Year: 2021<br />City: Lienchiang County<br />alpha: 0.3","N_Incidence:   31<br />N_Deaths:  12<br />Region: Outlying Islands<br />N_Incidence:   31<br />Year: 2021<br />City: Kinmen County<br />alpha: 0.3"],"frame":"2021","ids":["Lienchiang County","Kinmen County"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(0,176,246,1)","opacity":0.55000000000000004,"size":[4.2694259975104378,5.6768960525255885],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(0,176,246,1)"}},"hoveron":"points","name":"Outlying Islands","legendgroup":"Outlying Islands","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","visible":true},{"x":[3.1017470739463664,3.271841606536499,2.4014005407815442,2.6748611407378116,1.505149978319906,2.307496037913213],"y":[240,361,70,124,13,30],"text":["N_Incidence: 1264<br />N_Deaths: 240<br />Region: Southern Taiwan<br />N_Incidence: 1264<br />Year: 2021<br />City: Tainan City<br />alpha: 0.3","N_Incidence: 1870<br />N_Deaths: 361<br />Region: Southern Taiwan<br />N_Incidence: 1870<br />Year: 2021<br />City: Kaohsiung City<br />alpha: 0.3","N_Incidence:  252<br />N_Deaths:  70<br />Region: Southern Taiwan<br />N_Incidence:  252<br />Year: 2021<br />City: Chiayi County<br />alpha: 0.3","N_Incidence:  473<br />N_Deaths: 124<br />Region: Southern Taiwan<br />N_Incidence:  473<br />Year: 2021<br />City: Pingtung County<br />alpha: 0.3","N_Incidence:   32<br />N_Deaths:  13<br />Region: Southern Taiwan<br />N_Incidence:   32<br />Year: 2021<br />City: Penghu County<br />alpha: 0.3","N_Incidence:  203<br />N_Deaths:  30<br />Region: Southern Taiwan<br />N_Incidence:  203<br />Year: 2021<br />City: Chiayi City<br />alpha: 0.3"],"frame":"2021","ids":["Tainan City","Kaohsiung City","Chiayi County","Pingtung County","Penghu County","Chiayi City"],"type":"scatter","mode":"markers","marker":{"autocolorscale":false,"color":"rgba(231,107,243,1)","opacity":0.55000000000000004,"size":[16.090510587254219,18.755523304276775,9.2677021408373417,11.305490173912208,5.7082596399867551,8.7029459325124225],"symbol":"circle","line":{"width":1.8897637795275593,"color":"rgba(231,107,243,1)"}},"hoveron":"points","name":"Southern Taiwan","legendgroup":"Southern Taiwan","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","visible":true}],"traces":[0,1,2,3,4]}],"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+
+
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
